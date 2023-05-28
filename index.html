@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <div>Logo</div>
+        <button onclick="showForm()" class="button-add">+ Add a book</button>
+        <a href=""></a>
+    </div>
+    <form id="add-book" action="" method="post">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" minlength="1" maxlength="255">
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" minlength="1" maxlength="255">
+
+        <label for="pages">Pages:</label>
+        <input type="number" id="pages" name="pages" min="1">
+
+        <label for="read">Read:</label>
+        <input type="checkbox" id="read" name="read">
+        <input type="submit">
+    </form>
+    <div class="books"></div>
+    <div class="footer"><p>Copyright by gtsoul-tech githublogo</p></div>
+</body>
+</html>
