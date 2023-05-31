@@ -110,3 +110,15 @@ body{
   text-decoration: none;
   cursor: pointer;
 }
+.removeButton{
+    outline: none;
+    border: 1px solid red;
+    border-radius: 25px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 16px;
+}
+.removeButton:hover{
+    opacity: 0.8;
+}

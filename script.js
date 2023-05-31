@@ -17,9 +17,8 @@ Object.getPrototypeOf(myLibrary).books = function(){
     //console.log(books)
     books.textContent = "";
     let allTitles="";
-    for (const book in myLibrary) {
-        if (Object.hasOwnProperty.call(myLibrary, book)) {
-            const element = myLibrary[book];
+    for (let [index] of myLibrary.entries()) {
+            const element = myLibrary[index];
             const card = document.createElement("div");
             card.classList.add("card");
             
@@ -36,11 +35,21 @@ Object.getPrototypeOf(myLibrary).books = function(){
             read.textContent = "Read: " +element.read;
             card.appendChild(read);
             
+            const button = document.createElement("button");
+            button.textContent="- Remove Book";
+            button.value=index;
+            button.classList.add("removeButton");
+            button.addEventListener("click", removeFromLibrary);
+            card.appendChild(button);
             books.appendChild(card);
-        }
     }
 }
 
+function removeFromLibrary(e){
+    let index = e.target.getAttribute("value");
+    myLibrary.splice(index, 1);
+    myLibrary.books();
+}
 const book1 = new Book("titlos 1","syggrafeas 1",256,"yes");
 const book2 = new Book("titlos 2","syggrafeas 2",356,"no");
 addBookToLibrary(book1);
