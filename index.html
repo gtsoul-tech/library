@@ -11,23 +11,30 @@
 <body>
     <div class="header">
         <div>Logo</div>
-        <button onclick="showForm()" class="button-add">+ Add a book</button>
+        <button onclick="showModal()" class="button-add">+ Add a book</button>
         <a href=""></a>
     </div>
-    <form id="add-book" action="" method="post">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" minlength="1" maxlength="255">
+    <div id="modal" class="modal">
 
-        <label for="author">Author:</label>
-        <input type="text" id="author" name="author" minlength="1" maxlength="255">
-
-        <label for="pages">Pages:</label>
-        <input type="number" id="pages" name="pages" min="1">
-
-        <label for="read">Read:</label>
-        <input type="checkbox" id="read" name="read">
-        <input type="submit">
-    </form>
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="add-book" action="" method="post">
+                <label for="title">Title:
+                    <input type="text" id="title" name="title" minlength="1" maxlength="255" required>
+                </label>
+                <label for="author">Author:
+                    <input type="text" id="author" name="author" minlength="1" maxlength="255" required>
+                </label>
+                <label for="pages">Pages:
+                    <input type="number" id="pages" name="pages" min="1" required>
+                </label>
+                <label for="read">Read:
+                    <input type="checkbox" id="read" name="read" value="yes">
+                </label>
+                <input id="submit-add" type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
     <div class="books"></div>
     <div class="footer"><p>Copyright by gtsoul-tech githublogo</p></div>
 </body>
