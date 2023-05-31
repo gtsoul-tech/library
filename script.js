@@ -6,8 +6,15 @@ function Book(title,author,pages,read){
     this.pages=pages;
     this.read=read;
 }
-Object.getPrototypeOf(Book).info = function(){
+Book.prototype.info = function(){
     return this.title + " ";
+}
+Book.prototype.toggleRead = function(){
+    if(this.read === "yes"){
+        this.read="no";
+    }else{
+        this.read="yes";
+    }
 }
 function addBookToLibrary(book){
     myLibrary.push(book);
@@ -38,13 +45,23 @@ Object.getPrototypeOf(myLibrary).books = function(){
             const button = document.createElement("button");
             button.textContent="- Remove Book";
             button.value=index;
-            button.classList.add("removeButton");
+            button.classList.add("cardButton");
             button.addEventListener("click", removeFromLibrary);
+
+            const readToggle = document.createElement("button");
+            readToggle.textContent="Change Read";
+            readToggle.value=index;
+            readToggle.classList.add("cardButton");
+            readToggle.addEventListener("click",() => toggleReadandUpdate(element));
             card.appendChild(button);
+            card.appendChild(readToggle);
             books.appendChild(card);
     }
 }
-
+function toggleReadandUpdate(book){
+    book.toggleRead();
+    myLibrary.books();
+}
 function removeFromLibrary(e){
     let index = e.target.getAttribute("value");
     myLibrary.splice(index, 1);
